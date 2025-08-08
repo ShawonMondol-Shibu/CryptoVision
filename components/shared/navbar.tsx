@@ -1,28 +1,30 @@
 import {
   NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu"
+} from "@/components/ui/navigation-menu";
+import { ModeToggle } from "../toggle-theme";
+
+interface navType {
+  name: string;
+  url: string;
+}
 
 export function Navbar() {
-    // const navLink = 
+  const navLink = [
+    { name: "Home", url: "#" },
+    { name: "Coins", url: "#" },
+    { name: "About", url: "#" },
+    { name: "Contact", url: "#" },
+  ];
   return (
-  <NavigationMenu>
-    
-  <NavigationMenuList>
-    {
-        Array.from({length:5}).map((_,i)=><NavigationMenuItem key={i}>
-      <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
-      <NavigationMenuContent>
-        <NavigationMenuLink>Link</NavigationMenuLink>
-      </NavigationMenuContent>
-    </NavigationMenuItem>)
-    }
-    
-  </NavigationMenuList>
-</NavigationMenu>
-  )
+    <NavigationMenu className="p-2 flex items-center justify-between">
+      <NavigationMenuList>
+        {navLink.map((nav: navType) => (
+          <NavigationMenuLink key={nav.name} href={nav.url}>{nav.name}</NavigationMenuLink>
+        ))}
+      </NavigationMenuList>
+      <ModeToggle/>
+    </NavigationMenu>
+  );
 }
