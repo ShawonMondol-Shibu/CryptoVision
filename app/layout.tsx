@@ -38,10 +38,8 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <div className="fixed bottom-20 left-20">
-              <ModeToggle />
-            </div>
             <Navbar />
+            
             {children}
           </ThemeProvider>
         </body>

@@ -11,7 +11,7 @@ import { Card, CardContent } from '../ui/card'
 export default function Header() {
   return (
     <header>
-   <Carousel className="w-full max-w-xs">
+   <Carousel className="w-full max-w-max m-auto">
       <CarouselContent>
         {Array.from({ length: 5 }).map((_, index) => (
           <CarouselItem key={index}>
