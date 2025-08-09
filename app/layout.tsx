@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/shared/navbar";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Footer } from "@/components/shared/footer";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,17 +30,19 @@ export default function RootLayout({
 
   // const bgCss:string= "bg-[url('/images/banner.png')] bg-no-repeat bg-cover bg-top bg-fixed w-full h-screen backdrop-blur-2xl"
   return (
+    
     <ClerkProvider publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY!} >
       <html lang="en" suppressHydrationWarning>
+      <SpeedInsights/>
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased `}
-        >
+          >
           <ThemeProvider
             attribute="class"
-            defaultTheme="system"
+            defaultTheme="light"
             enableSystem
             disableTransitionOnChange
-          >
+            >
             <Navbar />
             
             {children}
