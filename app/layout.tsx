@@ -29,7 +29,7 @@ export default function RootLayout({
 
   // const bgCss:string= "bg-[url('/images/banner.png')] bg-no-repeat bg-cover bg-top bg-fixed w-full h-screen backdrop-blur-2xl"
   return (
-    <ClerkProvider >
+    <ClerkProvider publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY} >
       <html lang="en" suppressHydrationWarning>
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased `}
