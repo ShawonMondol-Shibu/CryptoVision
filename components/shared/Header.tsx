@@ -130,7 +130,7 @@ export default function HomePage() {
   ]
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen">
       {/* Global Navigation - REMOVED */}
 
       <main>
@@ -138,7 +138,7 @@ export default function HomePage() {
         <HeroSection />
 
         {/* Features Section */}
-        <section className="py-16 px-4 bg-white">
+        <section className="py-16 px-4 ">
           <div className="container mx-auto max-w-6xl text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-12">Unlock Your Trading Potential</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -156,7 +156,7 @@ export default function HomePage() {
         </section>
 
         {/* How It Works Section */}
-        <section className="py-16 px-4 bg-slate-50">
+        <section className="py-16 px-4 ">
           <div className="container mx-auto max-w-6xl text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-12">Simple Steps to Get Started</h2>
             <div className="grid md:grid-cols-3 gap-8">
@@ -186,7 +186,7 @@ export default function HomePage() {
         </section>
 
         {/* Testimonials Section */}
-        <section className="py-16 px-4 bg-white">
+        <section className="py-16 px-4">
           <div className="container mx-auto max-w-6xl text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-12">What Our Users Say</h2>
             <div className="grid md:grid-cols-3 gap-8">
@@ -208,10 +208,10 @@ export default function HomePage() {
         </section>
 
         {/* Market Overview Section (Placeholder) */}
-        <section className="py-16 px-4 bg-slate-50">
+        <section className="py-16 px-4 ">
           <div className="container mx-auto max-w-6xl text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-12">Real-Time Market Insights</h2>
-            <div className="bg-white p-8 rounded-lg shadow-lg border border-slate-200">
+            <div className=" p-8 rounded-lg shadow-lg border">
               <div className="flex justify-between items-center mb-6">
                 <h3 className="text-2xl font-semibold text-slate-800">Top Cryptocurrencies</h3>
                 <Button variant="outline" className="text-blue-600 border-blue-600 hover:bg-blue-50 bg-transparent">
@@ -220,7 +220,7 @@ export default function HomePage() {
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
                 {/* Placeholder for crypto data */}
-                <div className="flex items-center justify-between p-4 border rounded-lg bg-slate-50">
+                <div className="flex items-center justify-between p-4 border rounded-lg">
                   <div>
                     <p className="font-semibold text-slate-800">Bitcoin (BTC)</p>
                     <p className="text-sm text-slate-600">$68,500.23</p>
@@ -257,7 +257,7 @@ export default function HomePage() {
         </section>
 
         {/* Final CTA Section */}
-        <section className="py-16 px-4 bg-white">
+        <section className="py-16 px-4">
           <div className="container mx-auto max-w-4xl text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-6">Ready to Dive into Crypto?</h2>
             <p className="text-xl text-slate-600 mb-8 max-w-2xl mx-auto">
