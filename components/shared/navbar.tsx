@@ -41,6 +41,7 @@ export function Navbar() {
         </NavigationMenuList>
       </NavigationMenu>
       <div className="flex items-center gap-5">
+        
         <ModeToggle />
       </div>
     </nav>
