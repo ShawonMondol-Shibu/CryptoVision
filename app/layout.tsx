@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { ModeToggle } from "@/components/toggle-theme";
 import { Navbar } from "@/components/shared/navbar";
 import { ClerkProvider } from "@clerk/nextjs";
+import { Footer } from "@/components/shared/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -43,6 +44,7 @@ export default function RootLayout({
             <Navbar />
             
             {children}
+            <Footer/>
           </ThemeProvider>
         </body>
       </html>

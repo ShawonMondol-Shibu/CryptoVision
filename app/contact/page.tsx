@@ -267,7 +267,7 @@ export default function Page() {
               <Card key={index} className="shadow-sm">
                 <CardContent className="p-6">
                   <h3 className="font-semibold text-slate-800 dark:invert mb-2" >{faq.question}</h3>
-                  <p className="text-slate-600">{faq.answer}</p>
+                  <p className="text-slate-600 dark:invert">{faq.answer}</p>
                 </CardContent>
               </Card>
             ))}
