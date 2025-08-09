@@ -1,3 +1,4 @@
+"use client"
 import {
   NavigationMenu,
   NavigationMenuLink,
@@ -6,6 +7,9 @@ import {
 import { ModeToggle } from "../toggle-theme";
 import Image from "next/image";
 import Link from "next/link";
+import { User2 } from "lucide-react";
+import { Button } from "../ui/button";
+import { useClerk, UserButton, useUser } from "@clerk/nextjs";
 
 interface navType {
   name: string;
@@ -13,6 +17,10 @@ interface navType {
 }
 
 export function Navbar() {
+    const { user, isLoaded } = useUser();
+  const { openSignIn } = useClerk();
+  if (!isLoaded) return null;
+
   const navLink = [
     { name: "Home", url: "/" },
     { name: "Coins", url: "/coins" },
@@ -41,7 +49,21 @@ export function Navbar() {
         </NavigationMenuList>
       </NavigationMenu>
       <div className="flex items-center gap-5">
-        
+          {user ? (
+        <UserButton />
+      ) : (
+        <Button
+          variant="ghost"
+          onClick={() => {
+            if (openSignIn) openSignIn();
+          }}
+          size={'icon'}
+          asChild
+          className="p-1.5"
+        >
+          <User2 /> 
+        </Button>
+      )}
         <ModeToggle />
       </div>
     </nav>

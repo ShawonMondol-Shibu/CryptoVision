@@ -42,8 +42,8 @@ export function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/markets" className="text-sm hover:text-blue-400 transition-colors">
-                Markets
+              <Link href="/coins" className="text-sm hover:text-blue-400 transition-colors">
+                Coins
               </Link>
             </li>
           </ul>
