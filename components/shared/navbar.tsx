@@ -5,13 +5,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { ModeToggle } from "../toggle-theme";
 import Image from "next/image";
-import {
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  SignUpButton,
-  UserButton,
-} from "@clerk/nextjs";
+import Link from "next/link";
 
 interface navType {
   name: string;
@@ -20,13 +14,13 @@ interface navType {
 
 export function Navbar() {
   const navLink = [
-    { name: "Home", url: "#" },
-    { name: "Coins", url: "#" },
-    { name: "About", url: "#" },
-    { name: "Contact", url: "#" },
+    { name: "Home", url: "/" },
+    { name: "Coins", url: "/coins" },
+    { name: "About", url: "/about" },
+    { name: "Contact", url: "/contact" },
   ];
   return (
-    <nav className="px-4 flex items-center justify-between sticky top-0 left-0 z-10 backdrop-blur-xs">
+    <nav className="px-4 py-2 flex gap-2 items-center justify-between sticky top-0 left-0 z-10 backdrop-blur-xs">
       <Image
         src={"/logo/logo.png"}
         width={100}
@@ -34,27 +28,19 @@ export function Navbar() {
         alt="navigation logo"
         className="dark:invert"
       />
-      <NavigationMenu viewport={false}>
+      <NavigationMenu>
         <NavigationMenuList>
           {navLink.map((nav: navType) => (
-            <NavigationMenuLink key={nav.name} href={nav.url}>
+            <NavigationMenuLink key={nav.name} asChild>
+              <Link href={nav.url}>
+              
               {nav.name}
+              </Link>
             </NavigationMenuLink>
           ))}
         </NavigationMenuList>
       </NavigationMenu>
       <div className="flex items-center gap-5">
-        <SignedOut>
-          <SignInButton />
-          <SignUpButton>
-            <button className="bg-[#6c47ff] text-ceramic-white rounded-full font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 cursor-pointer">
-              Sign Up
-            </button>
-          </SignUpButton>
-        </SignedOut>
-        <SignedIn>
-          <UserButton />
-        </SignedIn>
         <ModeToggle />
       </div>
     </nav>
