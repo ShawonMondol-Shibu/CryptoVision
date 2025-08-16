@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button"
 import { Eye, TrendingUp, TrendingDown, ArrowLeft, Star, Globe, Twitter } from "lucide-react"
 import Link from "next/link"
 import { useState, useEffect } from "react"
-import { Footer } from "@/components/footer"
 
 interface CoinDetailData {
   name: string
@@ -313,7 +312,6 @@ export default function CoinDetailPage({ symbol }: CoinDetailPageProps) {
         </div>
       </section>
 
-      <Footer />
     </div>
   )
 }
