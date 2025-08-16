@@ -473,7 +473,7 @@ export default function CoinsPage() {
                 <Search className="h-8 w-8 text-slate-400" />
               </div>
               <h3 className="text-xl font-semibold text-slate-800 mb-2">No coins found</h3>
-              <p className="text-slate-600">Try adjusting your search terms to find what you're looking for.</p>
+              <p className="text-slate-600">Try adjusting your search terms to find what you&apos;re looking for.</p>
             </div>
           )}
         </div>
