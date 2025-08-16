@@ -282,8 +282,11 @@ export default function HomePage() {
                 <Button
                   variant="outline"
                   className="text-blue-600 border-blue-600 hover:bg-blue-50 bg-transparent"
+                  asChild
                 >
+                  <Link href={'/coins'}>
                   View All Markets
+                  </Link>
                 </Button>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
