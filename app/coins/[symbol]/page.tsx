@@ -1,9 +1,9 @@
 import CoinDetailPage from "../coin-detail-page"
 
-export default function CoinDetail({
-  params,
-}: {
+interface PageProps {
   params: { symbol: string }
-}) {
+}
+
+export default function CoinDetail({ params }: PageProps) {
   return <CoinDetailPage symbol={params.symbol} />
 }
