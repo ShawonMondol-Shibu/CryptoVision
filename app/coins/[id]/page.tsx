@@ -17,8 +17,12 @@ async function fetchCoinMarketChart(id: string) {
   return res.json();
 }
 
-export default async function Page({ params }: { params: { id: string } }) {
-  const { id } = params;
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
 
   const coin = await fetchCoinData(id);
   const chartData = await fetchCoinMarketChart(id);

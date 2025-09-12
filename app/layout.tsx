@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/shared/navbar";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Footer } from "@/components/shared/footer";
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,27 +26,20 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   // const bgCss:string= "bg-[url('/images/banner.png')] bg-no-repeat bg-cover bg-top bg-fixed w-full h-screen backdrop-blur-2xl"
   return (
-    
-    <ClerkProvider publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY!} >
+    <ClerkProvider
+      publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY!}
+    >
       <html lang="en" suppressHydrationWarning>
-      <SpeedInsights/>
+        <SpeedInsights />
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased `}
-          >
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="light"
-            
-            disableTransitionOnChange
-            >
-            <Navbar />
-            
-            {children}
-            <Footer/>
-          </ThemeProvider>
+        >
+          <Navbar />
+
+          {children}
+          <Footer />
         </body>
       </html>
     </ClerkProvider>
