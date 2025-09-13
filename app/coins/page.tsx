@@ -16,12 +16,11 @@ type coinType = Record<"id" | "image" | "name" | "current_price", string>;
 // app/coins/page.tsx
 export default function Page() {
   const [page, setPage] = useState<number>(1);
-  const [coins, setCoins] = useState([]);
+  const [coins, setCoins] = useState<coinType[]>([]);
 
   useEffect(() => {
     fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd", {
       headers: { "x-cg-demo-api-key": process.env.COINGECKO_API_KEY || "" },
-      next: { revalidate: 60 },
     })
       .then((res) => res.json())
       .then((data) => setCoins(data));
@@ -32,12 +31,14 @@ export default function Page() {
   const nextPage = page * limit;
   const paginatedItem: number = Math.ceil(coins.length / limit);
 
-  if (page === 0 || page < 0) {
-    setPage(page + 1);
-  }
-  if (page === paginatedItem + 1 || page > paginatedItem) {
-    setPage(page - 1);
-  }
+  useEffect(() => {
+    if (page === 0 || page < 0) {
+      setPage(page + 1);
+    }
+    if (page === paginatedItem + 1 || page > paginatedItem) {
+      setPage(paginatedItem);
+    }
+  }, [page, paginatedItem]);
 
   return (
     <main className="py-10">
