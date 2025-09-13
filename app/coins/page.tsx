@@ -24,7 +24,7 @@ export default function Page() {
     })
       .then((res) => res.json())
       .then((data) => setCoins(data));
-  }, [coins]);
+  }, []);
 
   const limit: number = 20;
   const prevPage = (page - 1) * limit;
@@ -65,20 +65,26 @@ export default function Page() {
       </div>
       <Pagination>
         <PaginationContent>
-          <PaginationItem onClick={() => setPage(page - 1)}>
+          <PaginationItem
+            onClick={() => setPage((p) => Math.max(p - 1, 1))}
+          >
             <PaginationPrevious href="#" />
           </PaginationItem>
+
           {Array.from({ length: paginatedItem }, (_, i: number) => (
             <PaginationItem key={i} onClick={() => setPage(i + 1)}>
               <PaginationLink
                 href="#"
-                className={page == i + 1 ? "bg-accent" : ""}
+                className={page === i + 1 ? "bg-accent" : ""}
               >
                 {i + 1}
               </PaginationLink>
             </PaginationItem>
           ))}
-          <PaginationItem onClick={() => setPage(page + 1)}>
+
+          <PaginationItem
+            onClick={() => setPage((p) => Math.min(p + 1, paginatedItem))}
+          >
             <PaginationNext href="#" />
           </PaginationItem>
         </PaginationContent>
